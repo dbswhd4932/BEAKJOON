@@ -8,7 +8,7 @@ public class 확장for문 {
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
-        double sum =0;
+        double sum = 0;
 
         for (double v : a) {
             sum += v;
