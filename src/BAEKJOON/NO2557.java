@@ -14,7 +14,6 @@ public class NO2557 {
         String num = String.valueOf(a* b* c);
 
         char[] ch = num.toCharArray();
-
         int [] arr = new int[10];
         for (int i = 0; i < ch.length; i++) {
             int idx = ch[i] - '0';
