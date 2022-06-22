@@ -12,7 +12,7 @@ public class NO2908 {
         a = Integer.parseInt(new StringBuilder().append(a).reverse().toString());
         b = Integer.parseInt(new StringBuilder().append(b).reverse().toString());
 
-        System.out.print(  a > b ? a : b);
+        System.out.println(a > b ? a : b);
 
     }
 }
