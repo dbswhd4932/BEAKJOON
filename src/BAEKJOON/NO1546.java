@@ -6,24 +6,27 @@ public class NO1546 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
+        int n  = sc.nextInt();
+        int [] scores = new int[n];
 
-        double[] arr = new double[N];
-        double max = 0;
-        double avg = 0;
+        
+        for (int i = 0; i < n; i++) {
+            scores[i] = sc.nextInt();
+        }
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = sc.nextInt();
-            if (max < arr[i]) {
-                max = arr[i];
+        int max = 0;
+        for (int i = 0; i < scores.length; i++) {
+            if(max < scores[i]) {
+                max = scores[i];
             }
         }
 
-        for (int i = 0; i < arr.length; i++) {
-            avg = ((arr[i] / max) * 100) / N;
+        double sum = 0;
+        for (int i = 0; i < scores.length; i++) {
+            sum += scores[i];
         }
 
-        System.out.println("max = " + max);
-        System.out.println(avg);
+        System.out.println(sum / max * 100 / (float)n);
+
     }
 }
