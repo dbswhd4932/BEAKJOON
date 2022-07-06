@@ -1,7 +1,5 @@
 package BAEKJOON;
 
-import JAVA.이것이자바다.중첩클래스인터페이스.중첩클래스.A;
-
 import java.util.Scanner;
 
 public class NO5622 {
