@@ -10,13 +10,13 @@ public class NO1712 {
         int B = sc.nextInt();
         int C = sc.nextInt();
 
-        int answer = 0;
+        long count = 0;
 
-        if (B > C) {
-            answer = -1;
+        if (B >= C) {
+            count = -1;
         } else {
-            answer = A / (C - B) + 1;
+            count = A / (C - B) + 1;
         }
-        System.out.println(answer);
+            System.out.println(count);
+        }
     }
-}

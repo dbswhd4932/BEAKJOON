@@ -13,9 +13,8 @@ public class NO2869 {
         double b = Double.parseDouble(str[1]);
         double v = Double.parseDouble(str[2]);
 
-        int n = (int)Math.ceil((v-b)/(a-b));
+        int n = (int)Math.ceil((v-b)/(a-b)); // 소수가 나오면 올림을 한다.
 
         System.out.println(n);
-
     }
 }
