@@ -5,44 +5,42 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class NO1697 {
-    static int n; // 시작지점
-    static int k; // 동생위치
+
+    static int n; //수빈이위치
+    static int k; //동생위치
+    static int[] dir = {-1, 1, 2};
+    static int[] cnt;
     static boolean[] visit;
-    static int[] ch;
     static Queue<Integer> Q = new LinkedList<>();
 
     public static void BFS(int n, int k) {
-        Q.offer(n); // Q에 초기값 offer
-        visit[n] = true; // 방문한 곳은 true
+        Q.offer(n);
+        visit[n] = true;
 
-        // 처음위치가 같을때 움직이지 않아도된다
         if (n == k) {
             System.out.println(0);
             return;
         }
 
-        // Q가 비어있지않을때까지
         while (!Q.isEmpty()) {
             int cur = Q.poll();
-
-            // 움직일 수 있는 곳
+            int nx = 0;
             for (int i = 0; i < 3; i++) {
-                int nx = 0;
-                if (i == 0) nx = cur - 1;
-                else if (i == 1) nx = cur + 1;
-                else if (i == 2) nx = cur * 2;
-
-                // 예외 처리 ( 최소 최대 )
-                if( nx < 0 || nx > 100000) {
+                if (i == 2) {
+                    nx = cur * dir[2];
+                } else {
+                    nx = cur + dir[i];
+                }
+                if (nx > 100000 || nx < 0) {
                     continue;
                 }
 
                 if (!visit[nx]) {
-                    Q.offer(nx);
-                    ch[nx] = ch[cur] + 1;
                     visit[nx] = true;
+                    Q.offer(nx);
+                    cnt[nx] = cnt[cur] + 1;
                     if (nx == k) {
-                        System.out.println(ch[k]);
+                        System.out.println(cnt[k]);
                         return;
                     }
                 }
@@ -51,13 +49,13 @@ public class NO1697 {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
+        Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
         k = sc.nextInt();
 
+        cnt = new int[100001];
         visit = new boolean[100001];
-        ch = new int[100001];
 
         BFS(n, k);
 
